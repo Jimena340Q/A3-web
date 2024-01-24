@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\EnvironmentType;
+use Database\Factories\InstructorFactory;
+use Database\Factories\UserFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +16,40 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(CareerSeeder::class);
+        $this->call(CourseSeeder::class);
+        $this->call(EnvironmentTypeSeeder::class);
+        $this->call(LocationSeeder::class);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+
+
+        InstructorFactory::factory()->create([
+            'type' => 'Contratista',
+            'profile' => 'Matematicas'
+        ]);
+        InstructorFactory::factory()->create([
+            'type' => 'Contratista',
+            'profile' => 'Tics'
+        ]);
+
+        InstructorFactory::factory()->create([
+            'type' => 'Contratista',
+            'profile' => 'Fisica'
+        ]);
+
+        InstructorFactory::factory()->create([
+            'type' => 'Planta',
+            'profile' => 'Programación'
+        ]);
+        InstructorFactory::factory()->create([
+            'type' => 'Planta',
+            'profile' => 'Ingles'
+        ]);
+
+        UserFactory::factory(5) ->create();
+      
+
+
+
     }
 }
