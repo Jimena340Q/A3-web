@@ -21,7 +21,7 @@ class InstructorFactory extends Factory
     {
        return [
         'document' => fake() ->unique()->numberBetween(1000000000 , 9999999999),
-        'fullname'=> fake() ->fullname(),
+        'fullname'=> fake() ->name(),
         'sena_email'=> fake() ->unique()->safeEmail(),
         'personal_email'=> fake() ->unique()->safeEmail(),
         'phone' => fake() ->phoneNumber(),

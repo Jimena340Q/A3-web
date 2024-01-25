@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name') ->comment('Nombre');
             $table->string('email')->unique() ->comment('Correo');
-            $table->string('password')->unique()->comment('Contraseña');
+            $table->string('password')->comment('Contraseña');
             $table->rememberToken()->comment('token de recuperación');
             $table->timestamps();
         });

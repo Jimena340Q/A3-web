@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreignId('location_id')->constrained('location')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-            $table->string('status', 20)->comment('estado');
+            $table->string('status', 20)->comment('estado: ACTIVO, INACTIVO');
             $table->timestamps();
         });
     }

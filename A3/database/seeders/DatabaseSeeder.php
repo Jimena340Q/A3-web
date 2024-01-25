@@ -5,8 +5,8 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\EnvironmentType;
-use Database\Factories\InstructorFactory;
-use Database\Factories\UserFactory;
+use App\Models\Instructor;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,30 +23,30 @@ class DatabaseSeeder extends Seeder
 
 
 
-        InstructorFactory::factory()->create([
+        Instructor::factory()->create([
             'type' => 'Contratista',
             'profile' => 'Matematicas'
         ]);
-        InstructorFactory::factory()->create([
+        Instructor::factory()->create([
             'type' => 'Contratista',
             'profile' => 'Tics'
         ]);
 
-        InstructorFactory::factory()->create([
+        Instructor::factory()->create([
             'type' => 'Contratista',
             'profile' => 'Fisica'
         ]);
 
-        InstructorFactory::factory()->create([
+        Instructor::factory()->create([
             'type' => 'Planta',
             'profile' => 'Programación'
         ]);
-        InstructorFactory::factory()->create([
+        Instructor::factory()->create([
             'type' => 'Planta',
             'profile' => 'Ingles'
-        ]);
+        ]); 
 
-        UserFactory::factory(5) ->create();
+        User::factory(5)->create();
       
 
 
