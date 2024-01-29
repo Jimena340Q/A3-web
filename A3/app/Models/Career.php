@@ -10,4 +10,13 @@ class Career extends Model
     use HasFactory;
 
     protected $table = 'career';
+    protected $fillable = 
+    [   'name',
+        'type'
+    ];
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
 }

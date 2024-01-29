@@ -9,4 +9,8 @@ class EnvironmentType extends Model
 {
     use HasFactory;
     protected $table = 'environment_type';
+    protected $fillable = 
+    [
+        'description'
+    ];
 }
