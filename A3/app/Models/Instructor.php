@@ -20,4 +20,9 @@ class Instructor extends Model
         'type',
         'profile'
     ];
+    public function sheduling_environment()
+    {
+        return $this->belongsTo(SchedulingEnvironment::class);
+    }
+
 }

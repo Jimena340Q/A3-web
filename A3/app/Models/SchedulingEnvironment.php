@@ -18,5 +18,13 @@ class SchedulingEnvironment extends Model
         'final_hour',
         'environment_id'
     ];
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+    public function intructors()
+    {
+        return $this->hasMany(Instructor::class);
+    }
 
 }

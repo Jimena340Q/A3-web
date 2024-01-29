@@ -16,4 +16,8 @@ class Location extends Model
         'status'
 
     ];
+    public function learning_enviroment()
+    {
+        return $this->belongsTo(LearningEnvironment::class);
+    }
 }

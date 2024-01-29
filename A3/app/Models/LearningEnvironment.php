@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use League\CommonMark\Environment\Environment;
 
 class LearningEnvironment extends Model
 {
@@ -21,4 +22,16 @@ class LearningEnvironment extends Model
       'location_id',
       'status'
     ];
+
+    public function environment_type()
+    {
+        return $this->hasMany(EnvironmentType::class);
+    }
+
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
+
 }
+ 

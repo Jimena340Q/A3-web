@@ -21,8 +21,15 @@ class Course extends Model
     
     public function careers()
     {
-        return $this->hasMany(Course::class);
+        return $this->hasMany(Career::class);
     }
+
+    public function scheduling_environmnent()
+    {
+        return $this->belongsTo(SchedulingEnvironment::class);
+    }
+
+    
     
 
 
