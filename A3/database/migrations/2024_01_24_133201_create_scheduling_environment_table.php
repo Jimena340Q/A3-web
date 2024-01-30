@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('date_scheduling')->comment('programación');
             $table->time('initial_hour')->comment('hora inicial');
             $table->time('final_hour')->comment('hora final');
-            $table->foreignId('enviroment_id')->constrained('learning_environment')
+            $table->foreignId('environment_id')->constrained('learning_environment')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
             $table->timestamps();

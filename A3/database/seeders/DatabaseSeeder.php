@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-      /*  $this->call(CareerSeeder::class);
+        $this->call(CareerSeeder::class);
         $this->call(CourseSeeder::class);
         $this->call(EnvironmentTypeSeeder::class);
         $this->call(LocationSeeder::class);
@@ -46,12 +46,16 @@ class DatabaseSeeder extends Seeder
             'profile' => 'Ingles'
         ]); 
 
-        User::factory(5) ->create();*/
+        User::factory(5) ->create();
 
-        $this->call(TestCareerSeeder::class);
-        //$this->call(CourseSeeder::class);
-        //$this->call(EnvironmentTypeSeeder::class);
-        //$this->call(LocationSeeder::class);
+         $this->call(TestCareerSeeder::class);
+         $this->call(TestCourseSeeder::class);
+         $this->call(TestEnvironmentTypeSeeder::class);
+         $this->call(TestInstructorSeeder::class);
+         $this->call(TestLocationSeeder::class);
+         $this->call(TestLearningEnvironmentSeeder::class);
+         $this->call(TestSchedulingEnvironmentSeeder::class);
+
         
         
 
