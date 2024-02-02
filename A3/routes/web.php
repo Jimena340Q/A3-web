@@ -105,3 +105,17 @@ Route::get('/location/index', function () {
 Route::get('/location/edit', function () {
     return view('location.edit');
 })->name('location.edit');
+
+
+Route::get('/scheduling_environment/create', function () {
+    return view('scheduling_environment.create');
+})->name('scheduling_environment.create');
+
+
+Route::get('/scheduling_environment/index', function () {
+    return view('scheduling_environment.index');
+})->name('scheduling_environment.index');
+
+Route::get('/scheduling_environment/edit', function () {
+    return view('scheduling_environment.edit');
+})->name('scheduling_environment.edit');

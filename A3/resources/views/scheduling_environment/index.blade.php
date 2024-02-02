@@ -1,10 +1,10 @@
 @extends('templates.base')
-@section('title', 'Listado carreras')
-@section('header', 'Listado carreras')
+@section('title', 'Listado de Reservas')
+@section('header', 'Listado de Reservas')
 @section('content')
     <div class="row">
         <div class="col-lg-12 mb-4 d-grip grap-2 d-md-block">
-            <a href="{{ route('course.create') }}" class="btn btn-primary">Crear</a>
+            <a href="{{ route('scheduling_environment.create') }}" class="btn btn-primary">Crear</a>
         </div>
     </div>
     @include('templates.messages')
@@ -14,12 +14,13 @@
             <table id="table_data" class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Ficha</th>
-                        <th>Jornada</th>
-                        <th>Carrera</th>
-                        <th>Fecha inicial</th>
-                        <th>Fecha final</th>
-                        <th>Estado</th>
+                        
+                        <th>Curso</th>
+                        <th>Instructor</th>
+                        <th>Fecha de programacion</th>
+                        <th>Hora inical</th>
+                        <th>Hora final</th>
+                        <th>Ambiente</th>
                         <th>Acciones</th>
 
 
@@ -27,12 +28,14 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>2356864</td>
-                        <td>Nocturna</td>
-                        <td>Enfermeria</td>
-                        <td>2024-02-01</td>
-                        <td>2026-11-09</td>
-                        <td>Inducción</td>
+                        
+                        <td>2478969</td>
+                        <td>Elodie Robert</td>
+                        <td>2024-02-02</td>
+                        <td>7:00</td>
+                        <td>12:30</td>
+                        <td>205</td>
+                        
                         
                         <td>
                             <a href="#" title="editar" class="btn btn-info btn-circle btn-sm">
