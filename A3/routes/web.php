@@ -62,3 +62,33 @@ Route::get('/environment_type/edit', function () {
     return view('environment_type.edit');
 })->name('environment_type.edit');
 
+
+
+Route::get('/instructor/create', function () {
+    return view('instructor.create');
+})->name('instructor.create');
+
+
+Route::get('/instructor/index', function () {
+    return view('instructor.index');
+})->name('instructor.index');
+
+Route::get('/instructor/edit', function () {
+    return view('instructor.edit');
+})->name('instructor.edit');
+
+
+Route::get('/learning_environment/create', function () {
+    return view('learning_environment.create');
+})->name('learning_environment.create');
+
+
+Route::get('/learning_environment/index', function () {
+    return view('learning_environment.index');
+})->name('learning_environment.index');
+
+Route::get('/learning_environment/edit', function () {
+    return view('learning_environment.edit');
+})->name('learning_environment.edit');
+
+

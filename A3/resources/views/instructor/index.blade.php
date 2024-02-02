@@ -1,10 +1,10 @@
 @extends('templates.base')
-@section('title', 'Listado carreras')
-@section('header', 'Listado carreras')
+@section('title', 'Listado instructores')
+@section('header','Listado instructores')
 @section('content')
     <div class="row">
         <div class="col-lg-12 mb-4 d-grip grap-2 d-md-block">
-            <a href="{{ route('course.create') }}" class="btn btn-primary">Crear</a>
+            <a href="{{ route('instructor.create') }}" class="btn btn-primary">Crear</a>
         </div>
     </div>
     @include('templates.messages')
@@ -15,12 +15,14 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Ficha</th>
-                        <th>Jornada</th>
-                        <th>Carrera</th>
-                        <th>Fecha inicial</th>
-                        <th>Fecha final</th>
-                        <th>Estado</th>
+                        <th>Documento</th>
+                        <th>Nombre</th>
+                        <th>Correo Sena</th>
+                        <th>Correo Personal</th>
+                        <th>Telefono</th>
+                        <th>Contraseñea</th>
+                        <th>Tipo</th>
+                        <th>Perfil</th>
                         <th>Acciones</th>
 
 
@@ -28,13 +30,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>5</td>
-                        <td>2356864</td>
-                        <td>Nocturna</td>
-                        <td>Enfermeria</td>
-                        <td>01-02-2024</td>
-                        <td>09-11-2026</td>
-                        <td>Inducción</td>
+                        <td>7</td>
+                        <td>1116080874</td>
+                        <td>Andres Escobar</td>
+                        <td>anfeles@sena.edu.co</td>
+                        <td>anfeles@gmail.como</td>
+                        <td>320 4875420</td>
+                        <td>password</td>
+                        <td>Planta</td>
+                        <td>Programador</td>
                         
                         <td>
                             <a href="#" title="editar" class="btn btn-info btn-circle btn-sm">

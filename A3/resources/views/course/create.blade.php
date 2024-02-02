@@ -25,9 +25,7 @@
                         <select name="carrer_id" id="career_id"
                         class="form-control" required>
                         <option value="">Seleccione</option>
-                        <option value="lectiva">Lectiva</option>
-                        <option value="productiva">Productiva</option>
-                        <option value="induccion">Inducción</option>
+                        
                         </select>
                     </div>
                 </div>    
@@ -51,7 +49,11 @@
                         <label for="status">Estado</label>
                         <select name="status" id="status"
                         class="form-control" required>
-                        <option value="activo">Seleccione</option>
+                        <option value="">Seleccione</option>
+                        <option value="lectiva">Lectiva</option>
+                        <option value="productiva">Productiva</option>
+                        <option value="induccion">Inducción</option>
+
                     </div>
                 </div>
                 

@@ -1,10 +1,10 @@
 @extends('templates.base')
-@section('title', 'Listado carreras')
-@section('header', 'Listado carreras')
+@section('title', 'Listado Entornos')
+@section('header','Listado Entornos')
 @section('content')
     <div class="row">
         <div class="col-lg-12 mb-4 d-grip grap-2 d-md-block">
-            <a href="{{ route('course.create') }}" class="btn btn-primary">Crear</a>
+            <a href="{{ route('learning_environment.create') }}" class="btn btn-primary">Crear</a>
         </div>
     </div>
     @include('templates.messages')
@@ -15,11 +15,13 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Ficha</th>
-                        <th>Jornada</th>
-                        <th>Carrera</th>
-                        <th>Fecha inicial</th>
-                        <th>Fecha final</th>
+                        <th>Nombre</th>
+                        <th>Capacidad</th>
+                        <th>Area mt2</th>
+                        <th>Piso</th>
+                        <th>Inventario</th>
+                        <th>Tipo</th>
+                        <th>Ubicacion</th>
                         <th>Estado</th>
                         <th>Acciones</th>
 
@@ -28,13 +30,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>5</td>
-                        <td>2356864</td>
-                        <td>Nocturna</td>
-                        <td>Enfermeria</td>
-                        <td>01-02-2024</td>
-                        <td>09-11-2026</td>
-                        <td>Inducción</td>
+                        <td>2</td>
+                        <td>Sala 203</td>
+                        <td>25</td>
+                        <td>null</td>
+                        <td>2</td>
+                        <td>Computadores, Escritorios, Televisor</td>
+                        <td>Sala informatica</td>
+                        <td>Bicentenario</td>
+                        <td>Activo</td>
                         
                         <td>
                             <a href="#" title="editar" class="btn btn-info btn-circle btn-sm">

@@ -79,6 +79,44 @@
                     </div>
                 </div>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4"
+                   aria-expanded="true" aria-controls="collapse4">
+                    <i class="fas fa-fw fa-minus"></i>
+                    <span>Entorno de Aprendizaje </span>
+                </a>
+                <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('learning_environment.index') }}">Consultar</a>
+                        <a class="collapse-item" href="{{ route('learning_environment.create') }}">Crear</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider"/>
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Instructores
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5"
+                   aria-expanded="true" aria-controls="collapse5">
+                    <i class="fas fa-fw fa-hammer"></i>
+                    <span>Instructor</span>
+                </a>
+                <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('instructor.index') }}">Consultar</a>
+                        <a class="collapse-item" href="{{ route('instructor.create') }}">Crear</a>
+                    </div>
+                </div>
+            </li>
+
             
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block" />
