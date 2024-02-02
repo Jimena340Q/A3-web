@@ -92,3 +92,16 @@ Route::get('/learning_environment/edit', function () {
 })->name('learning_environment.edit');
 
 
+
+Route::get('/location/create', function () {
+    return view('location.create');
+})->name('location.create');
+
+
+Route::get('/location/index', function () {
+    return view('location.index');
+})->name('location.index');
+
+Route::get('/location/edit', function () {
+    return view('location.edit');
+})->name('location.edit');

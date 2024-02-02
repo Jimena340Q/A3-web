@@ -14,7 +14,6 @@
             <table id="table_data" class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Id</th>
                         <th>Ficha</th>
                         <th>Jornada</th>
                         <th>Carrera</th>
@@ -28,7 +27,6 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>5</td>
                         <td>2356864</td>
                         <td>Nocturna</td>
                         <td>Enfermeria</td>

@@ -14,14 +14,12 @@
             <table id="table_data" class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Id</th>
                         <th>Descripción</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>9</td>
                         <td>Cancha</td>
                         <td>
                             <a href="#" title="editar" class="btn btn-info btn-circle btn-sm">
