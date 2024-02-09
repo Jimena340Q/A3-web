@@ -16,8 +16,13 @@
                 </div>
                 <div class="col-lg-4 mb-4">
                     <label for="shift">Jornada</label>
-                    <input type="text" class="form-control"
-                    id="shift" name="shift" required>
+                    <select type="text" class="form-control"
+                    id="type" name="type" required>
+                    <option value="">Seleccione</option>
+                    <option value="diurna">Diurna</option>
+                    <option value="mixta">Mixta</option>
+                    <option value="nocturna">Nocturna</option>
+                    </select>
                 </div>
                 
                 <div class="col-lg-4 mb-4">
