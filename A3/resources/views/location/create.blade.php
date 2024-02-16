@@ -5,7 +5,7 @@
     @include('templates.messages')
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <form action="#" method="POST">
+            <form action="{{ route('location.store') }}" method="POST">
                 @csrf
                 <div class="row form-group">
                     <div class="col-lg-4 mb-4">
@@ -25,8 +25,11 @@
                         <select name="status" id="status"
                          class="form-control" required>
                         <option value="">Seleccione</option>
-                        <option value="activo">Activo</option>
-                        <option value="inactivo">Inactivo</option>
+                    @foreach ($status as $status)
+                        <option value="{{ $status['value'] }}">
+                            {{ $status['name'] }}</option>
+                    @endforeach
+
                         </select>
                         
                     </div>

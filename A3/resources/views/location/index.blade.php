@@ -23,22 +23,24 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($locations as $location)
                     <tr>
-                        <td>CLEM</td>
-                        <td>Cra 24 # 24-78</td>
-                        <td>Inactivo</td>
+                        <td>{{ $location['name'] }}</td>
+                        <td>{{ $location['address'] }}</td>
+                        <td>{{ $location['state'] }}</td>
             
                     
                         
                         <td>
-                            <a href="#" title="editar" class="btn btn-info btn-circle btn-sm">
+                            <a href="{{ route('location.edit', $location['id']) }}" title="editar" class="btn btn-info btn-circle btn-sm">
                                 <i class="far fa-edit"></i>
                             </a>
-                            <a href="#" title="eliminar" class="btn btn-danger btn-circle btn-sm" onclick="return remove();">
+                            <a href="{{ route('location.destroy', $location['id']) }}" title="eliminar" class="btn btn-danger btn-circle btn-sm" onclick="return remove();">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
 

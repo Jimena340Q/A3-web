@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Location;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
@@ -11,7 +12,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        $locations = Location::all();
+        return view('location.index', compact('locations'));
     }
 
     /**
@@ -19,7 +21,19 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+        $location = Location::all();
+        if($location)
+        {
+            $status = array(
+                ['name' => 'ACTIVO' , 'value' => 'ACTIVO'],
+                ['name' => 'INACTIVO' , 'value' => 'INACTIVO'],
+            );
+
+            return view('location.create', compact('location', 'status'));
+
+
+        }
+        return redirect()->route('location.index');
     }
 
     /**
@@ -27,7 +41,9 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $location = Location::created($request->all());
+        session()->flash('message', 'Registro creado exitosamente');
+        return redirect()->route('location.index');
     }
 
     /**
@@ -43,7 +59,19 @@ class LocationController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $location = Location::find($id);
+        if($location)
+        {
+            $status = array(
+                ['name' => 'ACTIVO' , 'value' => 'ACTIVO'],
+                ['name' => 'INACTIVO' , 'value' => 'INACTIVO'],
+            );
+
+            return view('location.create', compact('location', 'status'));
+
+
+        }
+        return redirect()->route('location.index');
     }
 
     /**
@@ -51,7 +79,18 @@ class LocationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $location = Location::find($id);
+        if($location)
+        {
+            $location->update($request->all());
+            session()->flash('message', 'Registro actualizado exitosamente ');
+        }
+        else
+        {
+            
+            session()->flash('warning', 'No se encuentra el registro solicitado ');
+        }
+        return redirect()->route('location.index');
     }
 
     /**
@@ -59,6 +98,16 @@ class LocationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $location = Location::find($id);
+        if($location) 
+        {
+           $location->delete(); 
+           session()->flash('message','Registro eliminado exitosamente');
+        }
+        else
+        {
+            session()->flash('warning','No se encuentra el registro solicitado');
+        }
+        return redirect()->route('location.index');
     }
 }

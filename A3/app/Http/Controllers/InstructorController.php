@@ -101,7 +101,7 @@ class InstructorController extends Controller
         }
         else
         {
-            return redirect()->route('instructor.index');
+            
             session()->flash('warning', 'No se encuentra el registro solicitado');
 
         }
