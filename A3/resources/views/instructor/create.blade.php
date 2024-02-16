@@ -43,6 +43,7 @@
                             id="phone" name="phone" required>
                     </div>
 
+
                     <div class="col-lg-4 mb-4">
                         <label for="password">Contraseña</label>
                         <input type="password" class="form-control"
@@ -73,6 +74,8 @@
                     </div>
 
                 </div>
+
+                
 
                 
                 <div class="row form-group">

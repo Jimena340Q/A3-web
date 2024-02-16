@@ -41,7 +41,7 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        $location = Location::created($request->all());
+        $location = Location::create($request->all());
         session()->flash('message', 'Registro creado exitosamente');
         return redirect()->route('location.index');
     }
@@ -67,7 +67,7 @@ class LocationController extends Controller
                 ['name' => 'INACTIVO' , 'value' => 'INACTIVO'],
             );
 
-            return view('location.create', compact('location', 'status'));
+            return view('location.edit', compact('location', 'status'));
 
 
         }

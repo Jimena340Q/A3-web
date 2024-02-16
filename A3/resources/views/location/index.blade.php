@@ -17,7 +17,7 @@
                         <th>Nombre</th>
                         <th>Dirección</th>
                         <th>Estado</th>
-                        <td>Acciones</td>
+                        <th>Acciones</th>
 
     
                     </tr>
@@ -27,7 +27,7 @@
                     <tr>
                         <td>{{ $location['name'] }}</td>
                         <td>{{ $location['address'] }}</td>
-                        <td>{{ $location['state'] }}</td>
+                        <td>{{ $location['status'] }}</td>
             
                     
                         
