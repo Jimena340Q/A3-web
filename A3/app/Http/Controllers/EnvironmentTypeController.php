@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EnvironmentType;
 use Illuminate\Http\Request;
 
 class EnvironmentTypeController extends Controller
@@ -11,7 +12,8 @@ class EnvironmentTypeController extends Controller
      */
     public function index()
     {
-        //
+        $environments_types = EnvironmentType ::all(); 
+        return view('environment_type.index', compact('environments_types'));
     }
 
     /**
@@ -19,7 +21,7 @@ class EnvironmentTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('environment_type.create');
     }
 
     /**
@@ -27,13 +29,15 @@ class EnvironmentTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $environment_type = EnvironmentType::create($request->all());
+        session()->flash('message','Registro creado exitosamente');
+        return redirect()->route('environment_type.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id)                             
     {
         //
     }
@@ -43,7 +47,15 @@ class EnvironmentTypeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $environment_type = EnvironmentType::find($id);
+        if($environment_type)
+        {
+            return view('environment_type.edit', compact('environment_type' ));
+        }
+        else
+        {
+            return redirect()->route('environment_type.index');
+        }
     }
 
     /**
@@ -51,7 +63,17 @@ class EnvironmentTypeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $environment_type = EnvironmentType::find($id);
+        if($environment_type)
+        {
+            $environment_type->update($request->all()); 
+            session()->flash('message','Registro actualizado exitosamente');
+        }
+        else
+        {
+            session()->flash('warning','No se encuentra el registro solicitado');
+        }
+        return redirect()->route('environment_type.index');
     }
 
     /**
@@ -59,6 +81,16 @@ class EnvironmentTypeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $environment_type = EnvironmentType::find($id);
+        if($environment_type)
+        {
+            $environment_type->delete();
+            session()->flash('message','Registro eliminado exitosamente');
+        }
+        else
+        {
+            session()->flash('warning','No se encuentra el registro solicitado');
+        }
+        return redirect()->route('environment_type.index');
     }
 }

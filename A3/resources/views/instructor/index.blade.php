@@ -20,7 +20,7 @@
                         <th>Correo Sena</th>
                         <th>Correo Personal</th>
                         <th>Telefono</th>
-                        <th>Contraseñea</th>
+                        <th>Contraseña</th>
                         <th>Tipo</th>
                         <th>Perfil</th>
                         <th>Acciones</th>
@@ -29,26 +29,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>7</td>
-                        <td>1116080874</td>
-                        <td>Andres Escobar</td>
-                        <td>anfeles@sena.edu.co</td>
-                        <td>anfeles@gmail.como</td>
-                        <td>320 4875420</td>
-                        <td>password</td>
-                        <td>Planta</td>
-                        <td>Programador</td>
+                    @foreach ($instructors as $instructor)
                         
-                        <td>
-                            <a href="#" title="editar" class="btn btn-info btn-circle btn-sm">
-                                <i class="far fa-edit"></i>
-                            </a>
-                            <a href="#" title="eliminar" class="btn btn-danger btn-circle btn-sm" onclick="return remove();">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{ $instructor['id'] }}</td>
+                            <td>{{ $instructor['document'] }}</td>
+                            <td>{{ $instructor['fullname'] }}</td>
+                            <td>{{ $instructor['sena_email'] }}</td>
+                            <td>{{ $instructor['personal_email'] }}</td>
+                            <td>{{ $instructor['phone'] }}</td>
+                            <td>{{ $instructor['password'] }}</td>
+                            <td>{{ $instructor['type'] }}</td>
+                            <td>{{ $instructor['profile'] }}</td>
+
+                        
+                            <td>
+                                <a href="{{ route('instructor.edit' , $instructor['id']) }}" title="editar" class="btn btn-info btn-circle btn-sm">
+                                    <i class="far fa-edit"></i>
+                                </a>
+                                <a href="{{ route('instructor.destroy' , $instructor['id']) }}" title="eliminar" class="btn btn-danger btn-circle btn-sm" onclick="return remove();">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+
                 </tbody>
             </table>
 

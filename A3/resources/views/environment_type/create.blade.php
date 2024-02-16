@@ -5,7 +5,7 @@
     @include('templates.messages')
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <form action="#" method="POST">
+            <form action="{{ route('environment_type.store') }}" method="POST">
                 @csrf
                 <div class="row form-group">
                     <div class="col-lg-12 mb-4">
@@ -32,7 +32,3 @@
         </div>
     </div>
 @endsection
-    
-
-    
-
