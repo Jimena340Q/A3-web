@@ -5,7 +5,7 @@
     @include('templates.messages')
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <form action="#" method="POST">
+            <form action="{{ route('learning_environment.store') }}" method="POST">
                 @csrf
                 <div class="row form-group">
                     <div class="col-lg-4 mb-4">
@@ -48,6 +48,12 @@
                         <select name="type_id" id="type_id"
                          class="form-control" required>
                         <option value="">Seleccione</option>
+                        @foreach ($environments_types as $environment_type)
+                            <option value="{{ $environment_type ['description']}}">
+                                {{ $environment_type ['name']}}
+                            </option>
+                            
+                        @endforeach
                         </select>
                         
                     </div>
@@ -60,6 +66,12 @@
                         <select name="location_id" id="location_id"
                          class="form-control" required>
                         <option value="">Seleccione</option>
+                        @foreach ($locations as $location)
+                            <option value="{{ $location ['name']}}">
+                                {{ $location ['name']}}
+                            </option>
+                            
+                        @endforeach
                         
                         </select>
                     </div>
@@ -69,8 +81,13 @@
                             <select name="status" id="status"
                             class="form-control" required>
                            <option value="">Seleccione</option>
-                           <option value="activo">Activo</option> 
-                           <option value="inactivo">Inactivo</option>
+                           @foreach ($status as $s)
+                           <option value="{{ $s ['value']}}">
+                               {{ $s ['name']}}
+                           </option>
+                           
+                       @endforeach
+                          
                           </select>
                     </div>
 

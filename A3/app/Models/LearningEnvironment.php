@@ -25,12 +25,12 @@ class LearningEnvironment extends Model
 
     public function environment_type()
     {
-        return $this->hasMany(EnvironmentType::class);
+        return $this->belongsTo(EnvironmentType::class, 'type_id');
     }
 
-    public function locations()
+    public function location()
     {
-        return $this->hasMany(Location::class);
+        return $this->belongsTo(Location::class);
     }
 
 }

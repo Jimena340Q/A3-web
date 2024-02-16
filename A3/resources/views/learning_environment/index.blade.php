@@ -14,6 +14,7 @@
             <table id="table_data" class="table table-striped table-hover">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Nombre</th>
                         <th>Capacidad</th>
                         <th>Area mt2</th>
@@ -27,25 +28,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Sala 203</td>
-                        <td>25</td>
-                        <td>null</td>
-                        <td>2</td>
-                        <td>Computadores, Escritorios, Televisor</td>
-                        <td>Sala informatica</td>
-                        <td>Bicentenario</td>
-                        <td>Activo</td>
-                        
-                        <td>
-                            <a href="#" title="editar" class="btn btn-info btn-circle btn-sm">
-                                <i class="far fa-edit"></i>
-                            </a>
-                            <a href="#" title="eliminar" class="btn btn-danger btn-circle btn-sm" onclick="return remove();">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    @foreach ($learning_environments as $learning_environment)
+                         
+                            <tr>
+                                <td>{{ $learning_environment['id'] }}</td>
+                                <td>{{ $learning_environment['name'] }}</td>
+                                <td>{{ $learning_environment['capacity'] }}</td>
+                                <td>{{ $learning_environment['area_mt2'] }}</td>
+                                <td>{{ $learning_environment['floor'] }} </td>
+                                <td>{{ $learning_environment['inventory'] }} </td>
+                                <td>{{ $learning_environment->environment_type->description }}</td>
+                                <td>{{ $learning_environment->location->name}}</td>
+                                <td>{{ $learning_environment['status']}}</td>
+                                
+                                
+                                <td>
+                                    <a href="{{ route('learning_environment.edit', $learning_environment) }}" title="editar" class="btn btn-info btn-circle btn-sm">
+                                        <i class="far fa-edit"></i>
+                                    </a>
+                                    <a href="{{ route('learning_environment.destroy', $learning_environment) }}" title="eliminar" class="btn btn-danger btn-circle btn-sm" onclick="return remove();">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                    @endforeach
                 </tbody>
             </table>
 

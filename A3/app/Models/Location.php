@@ -16,8 +16,8 @@ class Location extends Model
         'status'
 
     ];
-    public function learning_enviroment()
+    public function learning_environment()
     {
-        return $this->belongsTo(LearningEnvironment::class);
+        return $this->hasMany(LearningEnvironment::class);
     }
 }

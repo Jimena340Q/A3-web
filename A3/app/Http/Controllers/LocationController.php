@@ -21,19 +21,16 @@ class LocationController extends Controller
      */
     public function create()
     {
-        $location = Location::all();
-        if($location)
-        {
             $status = array(
                 ['name' => 'ACTIVO' , 'value' => 'ACTIVO'],
                 ['name' => 'INACTIVO' , 'value' => 'INACTIVO'],
             );
 
-            return view('location.create', compact('location', 'status'));
+            return view('location.create', compact('locations', 'status'));
 
 
-        }
-        return redirect()->route('location.index');
+  
+        
     }
 
     /**
