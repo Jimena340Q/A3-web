@@ -15,7 +15,7 @@ class EnvironmentType extends Model
         'description'
     ];
 
-    public function learning_environments()
+    public function learning_environment()
     {
         return $this->hasMany(LearningEnvironment::class);
     }

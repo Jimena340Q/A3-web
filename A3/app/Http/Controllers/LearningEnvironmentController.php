@@ -23,7 +23,8 @@ class LearningEnvironmentController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {       $environments_types = EnvironmentType::all();
+    {       
+            $environments_types = EnvironmentType::all();
             $locations = Location::all();
     
         
@@ -33,7 +34,7 @@ class LearningEnvironmentController extends Controller
             );
            
 
-        return view('learning_environment.create', compact('locations', 'status', 'environments_types'));
+        return view('learning_environment.create', compact('environments_types','locations', 'status', ));
 
  }
 
@@ -50,6 +51,7 @@ class LearningEnvironmentController extends Controller
         return redirect()->route('learning_environment.index');
     }
 
+    
     /**
      * Display the specified resource.
      */
@@ -63,19 +65,19 @@ class LearningEnvironmentController extends Controller
      */
     public function edit(string $id)
     {
-        $learning_environment = LearningEnvironment::all();
+        $learning_environment = LearningEnvironment::find($id);
         if($learning_environment)
         {
             $environments_types = EnvironmentType::all();
             $locations = Location::all();
-            return view('learning_environment.edit', compact('learning_environment','environmemnts_types', 'locations'));
-
+           
             $status = array(
                 ['name' => 'ACTIVO' , 'value' => 'ACTIVO'],
                 ['name' => 'INACTIVO' , 'value' => 'INACTIVO'],
             );
+            return view('learning_environment.edit', compact('learning_environment','environments_types', 'locations', 'status'));
 
-            return view('learning_environment.create', compact('location', 'status'));
+          
         }
         session()->flash('message', 'No se encuentra el registro solicitado');
         return redirect()->route('learning_environment.index');

@@ -23,7 +23,7 @@
                     <div class="col-lg-4 mb-4">
                         <label for="area_mt2">Area mt2</label>
                         <input type="number" class="form-control"
-                        id="area_mt2" name="area_mt2" required>
+                        id="area_mt2" name="area_mt2" >
                         
                     </div>
                 </div>    
@@ -49,8 +49,8 @@
                          class="form-control" required>
                         <option value="">Seleccione</option>
                         @foreach ($environments_types as $environment_type)
-                            <option value="{{ $environment_type ['description']}}">
-                                {{ $environment_type ['name']}}
+                            <option value="{{ $environment_type ['id']}}">
+                                {{ $environment_type ['description']}}
                             </option>
                             
                         @endforeach
@@ -67,7 +67,7 @@
                          class="form-control" required>
                         <option value="">Seleccione</option>
                         @foreach ($locations as $location)
-                            <option value="{{ $location ['name']}}">
+                            <option value="{{ $location ['id']}}">
                                 {{ $location ['name']}}
                             </option>
                             
@@ -82,11 +82,11 @@
                             class="form-control" required>
                            <option value="">Seleccione</option>
                            @foreach ($status as $s)
-                           <option value="{{ $s ['value']}}">
-                               {{ $s ['name']}}
-                           </option>
+                                <option value="{{ $s ['value']}}">
+                                    {{ $s ['name']}}
+                                </option>
                            
-                       @endforeach
+                           @endforeach
                           
                           </select>
                     </div>

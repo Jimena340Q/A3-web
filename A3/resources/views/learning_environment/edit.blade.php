@@ -5,7 +5,7 @@
     @include('templates.messages')
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <form action="{{ route('learning_environment.update') }}" method="POST">
+            <form action="{{ route('learning_environment.update', $learning_environment['id']) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="row form-group">
@@ -26,7 +26,7 @@
                     <div class="col-lg-4 mb-4">
                         <label for="area_mt2">Area mt2</label>
                         <input type="number" class="form-control"
-                        id="area_mt2" name="area_mt2" required
+                        id="area_mt2" name="area_mt2"
                         value="{{ $learning_environment['area_mt2'] }}">
                         
                     </div>
@@ -58,11 +58,12 @@
                             <option value="{{$environment_type['id']}}" 
                                 @if ($environment_type['id'] == $learning_environment['type_id'])
                                 selected @endif> 
-                                {{ $environmnet_type['description'] }}
+                                {{ $environment_type['description'] }}
                                 
                             </option>
                             
                         @endforeach
+                       </select>
                         
                     </div>
                 </div>
@@ -102,8 +103,8 @@
 
                 </div>
 
-                
-                <div class="row form-group">
+
+                <div class ="row form-group">
                     <div class="col-lg-6 mb-4">
                         <button class="btn btn-primary btn-block"
                             type="submit">
@@ -114,7 +115,6 @@
                         <a href="{{ route('learning_environment.index') }}" class="btn btn-secondary btn-block">
                             Cancelar
                         </a>
-
                     </div>
                 </div>
             </form>

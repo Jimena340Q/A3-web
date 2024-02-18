@@ -14,6 +14,7 @@
             <table id="table_data" class="table table-striped table-hover">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Descripción</th>
                         <th>Acciones</th>
                     </tr>
@@ -21,7 +22,7 @@
                 <tbody>
                     @foreach ($environments_types as $environment_type)
 
-                        <tr>
+                        <tr><td>{{ $environment_type['id'] }}</td>
                             <td>{{ $environment_type['description'] }}</td>
                             <td>
                                 <a href="{{ route('environment_type.edit', $environment_type['id']) }}" title="editar" 
