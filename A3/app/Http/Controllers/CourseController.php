@@ -8,6 +8,22 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
+    private $rules =[
+        'name' =>'required|string|max:50|min:3',
+        'capacity' => 'numeric|max:9999999999|min:3',
+        'area_mt2' => 'string|max:50|min:3',
+        'observation_id' => 'numeric',
+        'causal_id' => 'required|numeric'
+    ];
+
+    private $traductionAttributes = [
+        'legalization_date' => 'Fecha de legalización',
+        'adress' => 'dirección',
+        'city' => 'ciudad',
+        'observation_id' => 'obsevación',
+        'causal_id' => 'causal'
+    ];
+
     /**
      * Display a listing of the resource.
      */

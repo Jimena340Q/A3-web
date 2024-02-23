@@ -11,19 +11,22 @@
                     <div class="col-lg-4 mb-4">
                             <label for="name">Nombre</label>
                             <input type="text" class="form-control"
-                            id="name" name="name" required>
+                            id="name" name="name" required
+                            value="{{ old('name') }}">
                     </div>
             
                     <div class="col-lg-4 mb-4">
                         <label for="capacity">Capacidad</label>
                         <input type="number" class="form-control"
-                        id="capacity" name="capacity" required>
+                        id="capacity" name="capacity" required
+                        value="{{ old('capacity') }}">
                     </div>
                                 
                     <div class="col-lg-4 mb-4">
                         <label for="area_mt2">Area mt2</label>
                         <input type="number" class="form-control"
-                        id="area_mt2" name="area_mt2" >
+                        id="area_mt2" name="area_mt2" 
+                        value="{{ old('area_mt2') }}">
                         
                     </div>
                 </div>    
@@ -34,13 +37,15 @@
                     <div class="col-lg-4 mb-4">
                         <label for="floor">Piso</label>
                         <input type="number" class="form-control"
-                        id="floor" name="floor" required>
+                        id="floor" name="floor" required
+                        value="{{ old('floor') }}">
                     </div>
                     
                     <div class="col-lg-4 mb-4">
                             <label for="inventory">Inventario</label>
                             <input type="text" class="form-control"
-                            id="inventory" name="inventory" required>
+                            id="inventory" name="inventory" 
+                            value="{{ old('inventory') }}">
                     </div>
 
                     <div class="col-lg-4 mb-4">
@@ -49,7 +54,8 @@
                          class="form-control" required>
                         <option value="">Seleccione</option>
                         @foreach ($environment_types as $environment_type)
-                            <option value="{{ $environment_type ['id']}}">
+                            <option value="{{ $environment_type ['id']}}"
+                            @if (old('type_id') == $environment_type['description']) selected @endif>
                                 {{ $environment_type ['description']}}
                             </option>
                             
@@ -67,7 +73,8 @@
                          class="form-control" required>
                         <option value="">Seleccione</option>
                         @foreach ($locations as $location)
-                            <option value="{{ $location ['id']}}">
+                            <option value="{{ $location ['id']}}"
+                            @if (old('location_id') == $location['name']) selected @endif>
                                 {{ $location ['name']}}
                             </option>
                             
@@ -82,7 +89,8 @@
                             class="form-control" required>
                            <option value="">Seleccione</option>
                            @foreach ($status as $s)
-                                <option value="{{ $s ['value']}}">
+                                <option value="{{ $s ['value']}}"
+                                @if (old('status') == $s['name']) selected @endif>
                                     {{ $s ['name']}}
                                 </option>                          
                            @endforeach             

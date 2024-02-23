@@ -36,6 +36,7 @@ class InstructorController extends Controller
     public function store(Request $request)
     {
         $request['password'] = Hash::make($request['password']);
+        
         $instructor = Instructor::create($request->all());
         session()->flash('message', 'Registro creado exitosamente');
         return redirect()->route('instructor.index');

@@ -7,10 +7,41 @@ use App\Models\LearningEnvironment;
 use App\Models\Location;
 use App\Models\SchedulingEnvironment;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
 
 class LearningEnvironmentController extends Controller
 {
+    
+    private $rules =[
+       
+            'name' =>'required|string|max:50|min:3',
+            'capacity' => 'numeric|max:9999999999',
+            'area_mt2' => 'numeric|max:9999999999|min:3',
+            'floor' => 'required|string|max:1',
+            'inventory' => 'string|max:150',
+            'type_id' => 'numeric',
+            'location_id' => 'numeric',
+            'status' => 'string|max:20|min:5'
+
+
+        ];
+        private $traductionAttributes = [
+
+            'name' => 'nombre',
+            'capacity' => 'capacidad',
+            'area_mt2' => 'area_mt2',
+            'floor' => 'piso',
+            'inventory' => 'inventario',
+            'type_id' => 'tipo',
+            'location_id' => 'ubicación',
+            'status' => 'estado'
+
+        ];
+
+
+
+
+
     /**
      * Display a listing of the resource.
      */
@@ -41,6 +72,14 @@ class LearningEnvironmentController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), $this->rules);
+        $validator->setAttributeNames($this->traductionAttributes);
+        if($validator->fails())
+        {
+            $errors = $validator->errors();
+            return redirect()->route('learning_environment.create')->withInput()->withErrors($errors);
+        }
+
         $learning_environment = LearningEnvironment::create($request->all());
         session()->flash('message', 'Registro creado exitosamente');
         return redirect()->route('learning_environment.index');
@@ -81,6 +120,14 @@ class LearningEnvironmentController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validator = Validator::make($request->all(), $this->rules);
+        $validator->setAttributeNames($this->traductionAttributes);
+        if($validator->fails())
+        {
+            $errors = $validator->errors();
+            return redirect()->route('learning_environment.edit', $id)->withInput()->withErrors($errors);
+        }
+
         $learning_environment = LearningEnvironment::find($id);
         if($learning_environment)
         {
