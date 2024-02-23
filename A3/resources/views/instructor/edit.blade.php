@@ -73,8 +73,6 @@
                         <option value="{{ $type['value'] }}">
                             {{ $type['name'] }}</option>
                     @endforeach
-                  
-                        
                         </select>
                     </div>
                     
@@ -100,7 +98,6 @@
                         <a href="{{ route('instructor.index') }}" class="btn btn-secondary btn-block">
                             Cancelar
                         </a>
-
                     </div>
                 </div>
             </form>

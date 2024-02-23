@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\SchedulingEnvironmentController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,9 +26,9 @@ class Course extends Model
         return $this->hasMany(Career::class);
     }
 
-    public function scheduling_environmnent()
+    public function scheduling_environments()
     {
-        return $this->belongsTo(SchedulingEnvironment::class);
+        return $this->hasMany(SchedulingEnvironment::class);
     }
 
     

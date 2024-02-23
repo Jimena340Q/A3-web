@@ -20,9 +20,10 @@ class Instructor extends Model
         'type',
         'profile'
     ];
-    public function sheduling_environment()
+
+    public function scheduling_environments()
     {
-        return $this->belongsTo(SchedulingEnvironment::class);
+        return $this->hasMany(SchedulingEnvironment::class);
     }
 
 }

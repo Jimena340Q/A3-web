@@ -12,19 +12,22 @@ class SchedulingEnvironment extends Model
     protected $fillable = 
     [
         'course_id',
-        'document_instructor',
+        'instructor_id',
         'date_scheduling',
         'initial_hour',
         'final_hour',
         'environment_id'
     ];
-    public function courses()
+    public function course()
     {
-        return $this->hasMany(Course::class);
+        return $this->belongsTo(Course::class);
     }
-    public function intructors()
+    public function instructor()
     {
-        return $this->hasMany(Instructor::class);
+        return $this->belongsTo(Instructor::class, 'instructor_id');
     }
-
+    public function learning_environment()
+    {
+        return $this->belongsTo(LearningEnvironment::class, 'environment_id');
+    }
 }

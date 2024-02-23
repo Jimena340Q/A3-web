@@ -15,8 +15,8 @@ class Career extends Model
         'type'
     ];
 
-    public function course()
+    public function courses()
     {
-        return $this->belongsTo(Course::class);
+        return $this->hasMany(Course::class);
     }
 }

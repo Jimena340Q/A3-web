@@ -14,6 +14,7 @@
             <table id="table_data" class="table table-striped table-hover">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Nombre</th>
                         <th>Dirección</th>
                         <th>Estado</th>
@@ -25,6 +26,8 @@
                 <tbody>
                     @foreach ($locations as $location)
                     <tr>
+                        
+                        <td>{{ $location['id'] }}</td>
                         <td>{{ $location['name'] }}</td>
                         <td>{{ $location['address'] }}</td>
                         <td>{{ $location['status'] }}</td>

@@ -33,5 +33,9 @@ class LearningEnvironment extends Model
         return $this->belongsTo(Location::class);
     }
 
+    public function scheduling_environments()
+    {
+        return $this->hasMany(SchedulingEnvironment::class);
+    }
 }
  

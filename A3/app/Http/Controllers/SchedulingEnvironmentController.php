@@ -37,7 +37,7 @@ class SchedulingEnvironmentController extends Controller
     {
         $scheduling_environment = SchedulingEnvironment::create($request->all());
         session()->flash('message', 'Registro creado exitosamente');
-        return redirect()->route('learning_environment.index');
+        return redirect()->route('scheduling_environment.index');
     }
 
     /**

@@ -20,18 +20,19 @@ class LocationController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-            $status = array(
-                ['name' => 'ACTIVO' , 'value' => 'ACTIVO'],
-                ['name' => 'INACTIVO' , 'value' => 'INACTIVO'],
-            );
+    { 
+        $status = array(
+            ['name' => 'ACTIVO' , 'value' => 'ACTIVO'],
+            ['name' => 'INACTIVO' , 'value' => 'INACTIVO'],
+        );
+        return view('location.create', compact('status'));
+        $status = array(
+            ['name' => 'ACTIVO' , 'value' => 'ACTIVO'],
+            ['name' => 'INACTIVO' , 'value' => 'INACTIVO'],
+        );
 
-            return view('location.create', compact('locations', 'status'));
-
-
-  
-        
-    }
+        return view('location.create', compact('status'));
+        }
 
     /**
      * Store a newly created resource in storage.
@@ -84,7 +85,6 @@ class LocationController extends Controller
         }
         else
         {
-            
             session()->flash('warning', 'No se encuentra el registro solicitado ');
         }
         return redirect()->route('location.index');

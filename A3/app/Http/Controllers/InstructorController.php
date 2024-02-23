@@ -21,20 +21,13 @@ class InstructorController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        $instructor = Instructor::all();
-        if($instructor)
-        {
-            $types = array(
-                ['name' => 'CONTRATISTA' , 'value' => 'CONTRATISTA'],
-                ['name' => 'PLANTA' , 'value' => 'PLANTA'],
-            );
+    { 
+        $types = array(
+            ['name' => 'CONTRATISTA' , 'value' => 'CONTRATISTA'],
+            ['name' => 'PLANTA' , 'value' => 'PLANTA'],
+        );
 
-            return view('instructor.create', compact('instructor', 'types'));
-
-
-        }
-        return redirect()->route('instructor.index');
+        return view('instructor.create', compact( 'types'));
     }
     
     /**
@@ -54,21 +47,13 @@ class InstructorController extends Controller
      */
     public function show(string $id)
     {
-        $instructor = Instructor::find($id);
-        if($instructor)
-        {
-            return view('instructor.edit', compact('instructor'));
-        }
-        else
-        {
-            return redirect()->route('instructor.index');
-        }
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request, string $id)
+    public function edit(string $id)
     {
         $instructor = Instructor::find($id);
         if($instructor)
@@ -80,9 +65,8 @@ class InstructorController extends Controller
 
             return view('instructor.edit', compact('instructor', 'types'));
 
-
-
         }
+        session()->flash('warning','No se encontro el registro solicitado');
         return redirect()->route('instructor.index');
     }
 
@@ -96,14 +80,12 @@ class InstructorController extends Controller
         $instructor = Instructor::find($id);
         if($instructor)
         {
-            $instructor->update($request->all()); //Delete from causal where id = x
+            $instructor->update($request->all());
             session()->flash('message', 'Registro actualizado exitosamente');
         }
         else
         {
-            
-            session()->flash('warning', 'No se encuentra el registro solicitado');
-
+             session()->flash('warning', 'No se encuentra el registro solicitado');
         }
 
         return redirect()->route('instructor.index');
@@ -126,7 +108,6 @@ class InstructorController extends Controller
             session()->flash('warning', 'No se encuentra el registro solicitado');
 
         }
-
         return redirect()->route('instructor.index');
     }
 }

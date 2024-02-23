@@ -53,7 +53,7 @@
                     <div class="col-lg-4 mb-4">
                         <label for="initial_hour">Hora inicial</label>
                         <input type="time" class="form-control"
-                        id="initial_date" name="initial_date" required>
+                        id="initial_hour" name="initial_hour" required>
                     </div>
                     
                     <div class="col-lg-4 mb-4">

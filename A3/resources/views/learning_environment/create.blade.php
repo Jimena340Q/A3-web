@@ -48,7 +48,7 @@
                         <select name="type_id" id="type_id"
                          class="form-control" required>
                         <option value="">Seleccione</option>
-                        @foreach ($environments_types as $environment_type)
+                        @foreach ($environment_types as $environment_type)
                             <option value="{{ $environment_type ['id']}}">
                                 {{ $environment_type ['description']}}
                             </option>
@@ -78,22 +78,18 @@
                     
                     <div class="col-lg-6 mb-4">
                             <label for="status">Estado</label>
-                            <select name="status" id="status"
+                        <select name="status" id="status"
                             class="form-control" required>
                            <option value="">Seleccione</option>
                            @foreach ($status as $s)
                                 <option value="{{ $s ['value']}}">
                                     {{ $s ['name']}}
-                                </option>
-                           
-                           @endforeach
-                          
-                          </select>
+                                </option>                          
+                           @endforeach             
+                        </select>
                     </div>
 
-                </div>
-
-                
+                </div>               
                 <div class="row form-group">
                     <div class="col-lg-6 mb-4">
                         <button class="btn btn-primary btn-block"

@@ -25,31 +25,25 @@ class LearningEnvironmentController extends Controller
      */
     public function create()
     {       
-            $environments_types = EnvironmentType::all();
-            $locations = Location::all();
-    
-        
-            $status = array(
-                ['name' => 'ACTIVO' , 'value' => 'ACTIVO'],
-                ['name' => 'INACTIVO' , 'value' => 'INACTIVO'],
-            );
-           
+        $environment_types = EnvironmentType::all();
+        $locations = Location::all();
+        $status = array(
+            ['name' => 'ACTIVO' , 'value' => 'ACTIVO'],
+            ['name' => 'INACTIVO' , 'value' => 'INACTIVO'],
+        );
 
-        return view('learning_environment.create', compact('environments_types','locations', 'status', ));
+        return view('learning_environment.create', compact('environment_types','locations', 'status', ));
 
- }
-
-        
-    
+    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $learning_environment = SchedulingEnvironment::create($request->all());
+        $learning_environment = LearningEnvironment::create($request->all());
         session()->flash('message', 'Registro creado exitosamente');
-        return redirect()->route('scheduling_environment.index');
+        return redirect()->route('learning_environment.index');
     }
 
     
@@ -69,24 +63,18 @@ class LearningEnvironmentController extends Controller
         $learning_environment = LearningEnvironment::find($id);
         if($learning_environment)
         {
-            $environments_types = EnvironmentType::all();
+            $environment_types = EnvironmentType::all();
             $locations = Location::all();
-           
             $status = array(
                 ['name' => 'ACTIVO' , 'value' => 'ACTIVO'],
                 ['name' => 'INACTIVO' , 'value' => 'INACTIVO'],
             );
-            return view('learning_environment.edit', compact('learning_environment','environments_types', 'locations', 'status'));
-
+            return view('learning_environment.edit', compact('learning_environment','environment_types', 'locations', 'status'));
           
         }
         session()->flash('message', 'No se encuentra el registro solicitado');
-        return redirect()->route('learning_environment.index');
-
-       
+        return redirect()->route('learning_environment.index');       
     }
-
-    
 
     /**
      * Update the specified resource in storage.
@@ -102,12 +90,11 @@ class LearningEnvironmentController extends Controller
         }
         else
         {
-            return redirect()->route('learning_environment.index');
             session()->flash('warning', 'No se encuentra el registro solicitado');
         }
+        
         return redirect()->route('learning_environment.index');
     }
-
 
     /**
      * Remove the specified resource from storage.
