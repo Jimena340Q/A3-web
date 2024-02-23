@@ -5,14 +5,24 @@
     @include('templates.messages')
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <form action="#" method="POST">
+            <form action="{{ route('scheduling_environment.update', $scheduling_environment['id']) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="row form-group">
                     <div class="col-lg-4 mb-4">
                             <label for="course_id">Curso</label>
                             <select name="course_id" id="course_id"
                             class="form-control" required>
                             <option value="">Seleccione</option>
+                            @foreach ($courses as $course)
+                                <option value="{{$course['id']}}" 
+                                    @if ($course['id'] == $scheduling_environment['course_id'])
+                                    selected @endif> 
+                                    {{ $course['code'] }}
+                                    
+                                </option>
+                                
+                            @endforeach
                             
                             </select>
                     </div>
@@ -22,6 +32,15 @@
                         <select name="instructor_id" id="instructor_id"
                         class="form-control" required>
                         <option value="">Seleccione</option>
+                        @foreach ($intructors as $intructor)
+                            <option value="{{$intructor['id']}}" 
+                                @if ($intructor['id'] == $scheduling_environment['instructor_id'])
+                                selected @endif> 
+                                {{ $intructor['fullname'] }}
+                                
+                            </option>
+                        
+                        @endforeach
                         
                         </select>
                     </div>
@@ -29,7 +48,8 @@
                     <div class="col-lg-4 mb-4">
                         <label for="date_scheduling">Fecha de programacion</label>
                         <input type="date" class="form-control"
-                        id="date_scheduling" name="date_scheduling" required>
+                        id="date_scheduling" name="date_scheduling" required
+                        value="{{ $scheduling_environment['date_scheduling'] }}">
                         
                         
                         </select>
@@ -42,13 +62,15 @@
                     <div class="col-lg-4 mb-4">
                         <label for="initial_hour">Hora inicial</label>
                         <input type="time" class="form-control"
-                        id="initial_date" name="initial_date" required>
+                        id="initial_date" name="initial_date" required
+                        value="{{ $scheduling_environment['initial_hour'] }}">
                     </div>
                     
                     <div class="col-lg-4 mb-4">
                         <label for="final_hour">Hora final</label>
                         <input type="time" class="form-control"
-                        id="final_hour" name="final_hour" required>
+                        id="final_hour" name="final_hour" required
+                        value="{{ $scheduling_environment['final_hour'] }}">
                     </div>
 
                     <div class="col-lg-4 mb-4">
@@ -56,6 +78,15 @@
                         <select name="environment_id" id="environment_id"
                         class="form-control" required>
                         <option value="">Seleccione</option>
+                        @foreach ($learning_environments as $learning_environment)
+                            <option value="{{$learning_environment['id']}}" 
+                                @if ($learning_environment['id'] == $scheduling_environment['environment_id'])
+                                selected @endif> 
+                                {{ $learning_environment['name'] }}
+                                
+                            </option>
+                        
+                        @endforeach
                         </select>
                         
                     </div>

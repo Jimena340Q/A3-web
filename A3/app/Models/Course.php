@@ -10,7 +10,8 @@ class Course extends Model
     use HasFactory;
     protected $table = 'course';
     protected $fillable = 
-    [
+    [  
+        'code',
         'shift',
         'career_id',
         'initial_date',

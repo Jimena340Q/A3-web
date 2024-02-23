@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\EnvironmentType;
 use App\Models\LearningEnvironment;
 use App\Models\Location;
+use App\Models\SchedulingEnvironment;
 use Illuminate\Http\Request;
 
 
@@ -46,9 +47,9 @@ class LearningEnvironmentController extends Controller
      */
     public function store(Request $request)
     {
-        $learning_environment = LearningEnvironment::create($request->all());
+        $learning_environment = SchedulingEnvironment::create($request->all());
         session()->flash('message', 'Registro creado exitosamente');
-        return redirect()->route('learning_environment.index');
+        return redirect()->route('scheduling_environment.index');
     }
 
     

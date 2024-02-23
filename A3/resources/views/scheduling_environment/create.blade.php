@@ -5,7 +5,7 @@
     @include('templates.messages')
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <form action="#" method="POST">
+            <form action="{{ route('scheduling_environment.store') }}" method="POST">
                 @csrf
                 <div class="row form-group">
                     <div class="col-lg-4 mb-4">
@@ -13,6 +13,12 @@
                             <select name="course_id" id="course_id"
                             class="form-control" required>
                             <option value="">Seleccione</option>
+                            @foreach ($courses as $course)
+                            <option value="{{ $course ['id']}}">
+                                {{ $course ['code']}}
+                            </option>
+                            
+                            @endforeach
                             
                             </select>
                     </div>
@@ -22,7 +28,12 @@
                         <select name="instructor_id" id="instructor_id"
                         class="form-control" required>
                         <option value="">Seleccione</option>
-                        
+                        @foreach ($instructors as $instructor)
+                            <option value="{{ $instructor ['id']}}">
+                                {{ $instructor ['fullname']}}
+                            </option>
+                            
+                        @endforeach
                         </select>
                     </div>
                                 
@@ -56,6 +67,11 @@
                         <select name="environment_id" id="environment_id"
                         class="form-control" required>
                         <option value="">Seleccione</option>
+                        @foreach ($learning_environments as $learning_environment)
+                            <option value="{{ $learning_environment ['id']}}">
+                                {{ $learning_environment ['name']}}
+                            </option>                        
+                        @endforeach
                         </select>
                         
                     </div>

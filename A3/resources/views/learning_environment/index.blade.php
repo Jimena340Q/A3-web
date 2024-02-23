@@ -43,10 +43,10 @@
                                 
                                 
                                 <td>
-                                    <a href="{{ route('learning_environment.edit', $learning_environment) }}" title="editar" class="btn btn-info btn-circle btn-sm">
+                                    <a href="{{ route('learning_environment.edit', $learning_environment  ['id']) }}" title="editar" class="btn btn-info btn-circle btn-sm">
                                         <i class="far fa-edit"></i>
                                     </a>
-                                    <a href="{{ route('learning_environment.destroy', $learning_environment) }}" title="eliminar" class="btn btn-danger btn-circle btn-sm" onclick="return remove();">
+                                    <a href="{{ route('learning_environment.destroy', $learning_environment ['id']) }}" title="eliminar" class="btn btn-danger btn-circle btn-sm" onclick="return remove();">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>

@@ -14,7 +14,7 @@
             <table id="table_data" class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        
+                        <th>Id</th>
                         <th>Curso</th>
                         <th>Instructor</th>
                         <th>Fecha de programacion</th>
@@ -27,25 +27,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        
-                        <td>2478969</td>
-                        <td>Elodie Robert</td>
-                        <td>2024-02-02</td>
-                        <td>7:00</td>
-                        <td>12:30</td>
-                        <td>205</td>
-                        
-                        
-                        <td>
-                            <a href="#" title="editar" class="btn btn-info btn-circle btn-sm">
-                                <i class="far fa-edit"></i>
-                            </a>
-                            <a href="#" title="eliminar" class="btn btn-danger btn-circle btn-sm" onclick="return remove();">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    @foreach ($scheduling_environments as $scheduling_environment)                   
+                        <tr>
+                            
+                            <td>{{ $scheduling_environment['id'] }}</</td>
+                            <td>{{ $scheduling_environment->course->code}}</td>
+                            <td>{{ $scheduling_environment->instructor->fullname}}</td>
+                            <td>{{ $scheduling_environment['date_scheduling'] }}</td>
+                            <td>{{ $scheduling_environment['initial_hour'] }}</td>
+                            <td>{{ $scheduling_environment['final_hour'] }}</td>
+                            <td>{{ $scheduling_environment->learning_environment->name}}</td>
+                            
+                            
+                            <td>
+                                <a href="{{ route('scheduling_environment.edit', $scheduling_environment ['id']) }}" title="editar" class="btn btn-info btn-circle btn-sm">
+                                    <i class="far fa-edit"></i>
+                                </a>
+                                <a href="{{ route('scheduling_environment.destroy', $scheduling_environment ['id']) }}" title="eliminar" class="btn btn-danger btn-circle btn-sm" onclick="return remove();">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
 
