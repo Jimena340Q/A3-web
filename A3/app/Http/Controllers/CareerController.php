@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class CareerController extends Controller
+
 {
     private $rules =[
       'name' => 'required|string|max:80|min:3',
@@ -20,6 +21,7 @@ class CareerController extends Controller
 
     ];
 
+     
 
     /**
      * Display a listing of the resource.
