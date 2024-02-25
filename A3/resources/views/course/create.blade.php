@@ -11,16 +11,19 @@
                     <div class="col-lg-4 mb-4">
                             <label for="code">Ficha</label>
                             <input type="number" class="form-control"
-                            id="code" name="code" required>
+                            id="code" name="code" required
+                            value="{{ old('code') }}">
+                            
                     </div>
             
                     <div class="col-lg-4 mb-4">
                         <label for="shift">Jornada</label>
                         <select type="text" class="form-control"
-                        id="type" name="type" required>
+                        id="shift" name="shift" required>
                         <option value="">Seleccione</option>
                     @foreach ($shifts as $shift)
-                        <option value="{{ $shift['value'] }}">
+                        <option value="{{ $shift['name'] }}"
+                        @if (old('shift') == $shift['name']) selected @endif>
                             {{ $shift['name'] }}
                         </option>
                     @endforeach
@@ -34,7 +37,8 @@
                         class="form-control" required>
                         <option value="">Seleccione</option>
                     @foreach ($careers as $career)
-                        <option value="{{ $career['id'] }}">
+                        <option value="{{ $career['id'] }}"
+                        @if (old('career_id') == $career['career_id']) selected @endif>
                             {{ $career['name'] }}
                         </option>
                     @endforeach  
@@ -48,13 +52,16 @@
                     <div class="col-lg-4 mb-4">
                         <label for="initial_date">Fecha inicial</label>
                         <input type="date" class="form-control"
-                        id="initial_date" name="initial_date" required>
+                        id="initial_date" name="initial_date" required
+                        value="{{ old('initial_date') }}">
+                        
                     </div>
                     
                     <div class="col-lg-4 mb-4">
                             <label for="final_date">Fecha final</label>
                             <input type="date" class="form-control"
-                            id="final_date" name="final_date" required>
+                            id="final_date" name="final_date" required
+                            value="{{ old('final_date') }}">
                     </div>
 
                     <div class="col-lg-4 mb-4">
@@ -63,7 +70,8 @@
                         class="form-control" required>
                         <option value="">Seleccione</option>
                     @foreach ($status as $s)
-                        <option value="{{ $s['value'] }}">
+                        <option value="{{ $s['value'] }}"
+                        @if (old('status') == $s['name']) selected @endif>
                             {{ $s['name'] }}</option>
                     @endforeach
                         </select>

@@ -5,23 +5,27 @@ namespace App\Http\Controllers;
 use App\Models\Career;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CourseController extends Controller
 {
     private $rules =[
-        'name' =>'required|string|max:50|min:3',
-        'capacity' => 'numeric|max:9999999999|min:3',
-        'area_mt2' => 'string|max:50|min:3',
-        'observation_id' => 'numeric',
-        'causal_id' => 'required|numeric'
-    ];
+        'code' =>'required|numeric|max:9999999999',
+        'shift' => 'required|string|max:70|min:3',
+        'career_id' => 'numeric',
+        'initial_date' => 'required|date|date_format:Y-m-d',
+        'final_date' => 'required|date|date_format:Y-m-d',
+        'status' => 'required|string|max:'
 
+    ];
+    
     private $traductionAttributes = [
-        'legalization_date' => 'Fecha de legalización',
-        'adress' => 'dirección',
-        'city' => 'ciudad',
-        'observation_id' => 'obsevación',
-        'causal_id' => 'causal'
+        'code' => 'ficha',
+        'shift' => 'jornada',
+        'career_id' => 'carrera',
+        'initial_date' => 'fecha inicial',
+        'final_date' => 'fecha final',
+        'status' => 'estado',
     ];
 
     /**
@@ -57,6 +61,13 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), $this->rules);
+        $validator->setAttributeNames($this->traductionAttributes);
+        if($validator->fails())
+        {
+            $errors = $validator->errors();
+            return redirect()->route('course.create')->withInput()->withErrors($errors);
+        }
         $course = Course::create($request->all());
         session()->flash('message','Registro creado exitosamente');
         return redirect()->route('course.index');
@@ -101,6 +112,13 @@ class CourseController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validator = Validator::make($request->all(), $this->rules);
+        $validator->setAttributeNames($this->traductionAttributes);
+        if($validator->fails())
+        {
+            $errors = $validator->errors();
+            return redirect()->route('course.create' , $id)->withInput()->withErrors($errors);
+        }
         $course = Course::find($id);
         if($course)
         {
