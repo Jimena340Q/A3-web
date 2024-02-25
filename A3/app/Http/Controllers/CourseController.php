@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Validator;
 class CourseController extends Controller
 {
     private $rules =[
-        'code' =>'required|numeric|max:9999999999',
+        'code' =>'required|numeric|max:9999999999|min:3',
         'shift' => 'required|string|max:70|min:3',
         'career_id' => 'numeric',
         'initial_date' => 'required|date|date_format:Y-m-d',
         'final_date' => 'required|date|date_format:Y-m-d',
-        'status' => 'required|string|max:'
+        'status' => 'required|string|max:20|min:3'
 
     ];
     
@@ -117,7 +117,7 @@ class CourseController extends Controller
         if($validator->fails())
         {
             $errors = $validator->errors();
-            return redirect()->route('course.create' , $id)->withInput()->withErrors($errors);
+            return redirect()->route('course.edit' , $id)->withInput()->withErrors($errors);
         }
         $course = Course::find($id);
         if($course)

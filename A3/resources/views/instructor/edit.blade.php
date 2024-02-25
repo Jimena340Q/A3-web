@@ -26,7 +26,7 @@
                                 
                     <div class="col-lg-4 mb-4">
                         <label for="sena_email">Correo Sena</label>
-                        <input type="email" class="sena_email"
+                        <input type="email" class="form-control"
                         id="sena_email" name="sena_email" required
                         value="{{ $instructor['sena_email'] }}">
                         
@@ -90,9 +90,9 @@
                 <div class="row form-group">
                     <div class="col-lg-6 mb-4">
                         <button class="btn btn-primary btn-block"
-                            type="submit">
-                            Guardar
-                        </button>
+                        type="submit">
+                        Guardar
+                    </button>
                     </div>
                     <div class="col-lg-6 mb-4">
                         <a href="{{ route('instructor.index') }}" class="btn btn-secondary btn-block">

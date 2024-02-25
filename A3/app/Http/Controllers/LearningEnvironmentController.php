@@ -16,7 +16,7 @@ class LearningEnvironmentController extends Controller
        
             'name' =>'required|string|max:50|min:3',
             'capacity' => 'numeric|max:9999999999',
-            'area_mt2' => 'numeric|max:9999999999|min:3',
+            'area_mt2' => 'numeric|max:9999999999|min:2',
             'floor' => 'required|string|max:1',
             'inventory' => 'string|max:150',
             'type_id' => 'numeric',

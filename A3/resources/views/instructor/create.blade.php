@@ -86,8 +86,8 @@
                 <div class="row form-group">
                     <div class="col-lg-6 mb-4">
                         <button class="btn btn-primary btn-block"
-                            type="submit">
-                            Guardar
+                        type="submit">
+                        Guardar
                         </button>
                     </div>
                     <div class="col-lg-6 mb-4">

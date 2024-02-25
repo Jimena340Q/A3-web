@@ -19,7 +19,7 @@
                     <div class="col-lg-4 mb-4">
                         <label for="shift">Jornada</label>
                         <select type="text" class="form-control"
-                        id="type" name="type" required>
+                        id="shift" name="shift" required>
                         <option value="">Seleccione</option>
                             @foreach ($shifts as $shift)
                                 <option value="{{ $shift['value'] }}"  
@@ -85,7 +85,7 @@
                         </button>
                     </div>
                     <div class="col-lg-6 mb-4">
-                        <a href="{{ route('career.index') }}" class="btn btn-secondary btn-block">
+                        <a href="{{ route('course.index') }}" class="btn btn-secondary btn-block">
                             Cancelar
                         </a>
                     </div>
