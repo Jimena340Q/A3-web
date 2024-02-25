@@ -12,8 +12,8 @@ class InstructorController extends Controller
     private $rules = [
         'document' => 'required|numeric|max:99999999999999999999|min:3',
         'fullname' => 'required|string|max:100|min:3',
-        'sena_email' => 'required|email|max:100|unique:instructor',
-        'personal_email' => 'required|email|max:100|unique:instructor',
+        'sena_email' => 'required|email|max:100',
+        'personal_email' => 'required|email|max:100',
         'phone' => 'numeric|max:999999999999999999999999999999|min:3',
         'password' => 'required|string|min:8|max:100',
         'type' => 'required|string|max:20',
@@ -59,7 +59,7 @@ class InstructorController extends Controller
     {
         $validator = Validator::make($request->all(), $this->rules);
         $validator->setAttributeNames($this->traductionAttributes);
-        if ($validator->fails());
+        if($validator->fails())
         {
             $errors = $validator->errors();
             return redirect()->route('instructor.create')->withInput()->withErrors($errors);
