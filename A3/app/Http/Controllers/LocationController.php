@@ -4,9 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\Location;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class LocationController extends Controller
 {
+
+    private $rules =[
+        'name' => 'required|string|max:80|min:3',
+        'address' => 'required|string|max:80|min:3',
+        'status' => 'required|string|max:20|min:3',
+
+  
+      ];
+  
+      private $traductionAttributes = [
+          'name' => 'nombre',
+          'address' => 'dirección',
+          'status' => 'estado'
+  
+      ];
+
     /**
      * Display a listing of the resource.
      */
@@ -39,6 +56,15 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), $this->rules);
+        $validator->setAttributeNames($this->traductionAttributes);
+        if($validator->fails())
+        {
+            $errors = $validator->errors();
+            return redirect()->route('location.create')->withInput()->withErrors($errors);
+        }
+
+
         $location = Location::create($request->all());
         session()->flash('message', 'Registro creado exitosamente');
         return redirect()->route('location.index');
@@ -77,6 +103,15 @@ class LocationController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+        $validator = Validator::make($request->all(), $this->rules);
+        $validator->setAttributeNames($this->traductionAttributes);
+        if($validator->fails())
+        {
+            $errors = $validator->errors();
+            return redirect()->route('location.edit',$id)->withInput()->withErrors($errors);
+        }
+
         $location = Location::find($id);
         if($location)
         {
