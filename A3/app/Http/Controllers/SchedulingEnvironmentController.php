@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\Instructor;
 use App\Models\LearningEnvironment;
 use App\Models\SchedulingEnvironment;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -42,6 +43,37 @@ class SchedulingEnvironmentController extends Controller
         return view('scheduling_environment.index', compact('scheduling_environments'));
     }
 
+
+
+    public function reports()
+    {
+      $courses = Course::all();
+      return view('scheduling_environment.reports', compact( 'courses'));
+    } 
+
+
+
+    public function export_scheduling_environments_by_course(Request $request)
+    {
+        $courses = Course::where('id', '=', $request['course_id'])->first();
+        $learning_environments = LearningEnvironment::all();
+        $scheduling_environments = SchedulingEnvironment::whereBetween('date_scheduling',[ $request['initial_date'], $request['final_date']])
+                                        ->get();
+        $data = array(
+            'initial_date' => $request['initial_date'],
+            'final_date' => $request['final_date'],
+            'courses' => $courses,
+            'learning_environments' => $learning_environments,
+            'scheduling_environments' => $scheduling_environments
+            
+        );
+
+        $pdf = Pdf::loadView('reports.export_scheduling_environments', $data)
+                 ->setPaper('letter','portrait');
+        return $pdf->download('scheduling_environment_by_course.pdf');
+
+
+    }
     /**
      * Show the form for creating a new resource.
      */

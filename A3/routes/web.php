@@ -7,6 +7,7 @@ use App\Http\Controllers\EnvironmentTypeController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\LearningEnvironmentController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SchedulingEnvironmentController;
 use App\Models\Career;
 use Illuminate\Support\Facades\Route;
@@ -32,8 +33,7 @@ Route::prefix('auth')->group(function(){
     Route::get('/index', [AuthController::class, 'index'])->name('auth.index');
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
     Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
-    Route::get('/register', [AuthController::class, 'create'])->name('auth.register');
-    Route::post('/register', [AuthController::class, 'store'])->name('auth.store');
+   
   
 });
 
@@ -102,7 +102,16 @@ Route::middleware('auth')->prefix('scheduling_environment')->group(function(){
     Route::post('/create', [SchedulingEnvironmentController::class, 'store'])->name('scheduling_environment.store');
     Route::put('/edit/{id}', [SchedulingEnvironmentController::class, 'update'])->name('scheduling_environment.update');
     Route::get('/destroy/{id}', [SchedulingEnvironmentController::class, 'destroy'])->name('scheduling_environment.destroy');
+    Route::get('/reports', [SchedulingEnvironmentController::class, 'reports'])->name('scheduling_environment.reports');
+    Route::post('/export_scheduling_environments_by_course', [SchedulingEnvironmentController::class, 'export_scheduling_environments_by_course'])->name('scheduling_environment.report_by_course');
+ 
 }); 
+
+
+
+
+
+
 
 
 
