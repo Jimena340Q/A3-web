@@ -6,6 +6,7 @@
         <div class="col-lg-12 mb-4 d-grip grap-2 d-md-block">
             <a href="{{ route('learning_environment.create') }}" class="btn btn-primary">Crear</a>
         </div>
+
     </div>
     @include('templates.messages')
 

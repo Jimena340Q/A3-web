@@ -6,11 +6,12 @@ use App\Models\EnvironmentType;
 use App\Models\LearningEnvironment;
 use App\Models\Location;
 use App\Models\SchedulingEnvironment;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class LearningEnvironmentController extends Controller
-{
+{   
     
     private $rules =[
        
@@ -40,8 +41,6 @@ class LearningEnvironmentController extends Controller
 
 
 
-
-
     /**
      * Display a listing of the resource.
      */
@@ -51,7 +50,24 @@ class LearningEnvironmentController extends Controller
         return view('learning_environment.index', compact('learning_environments'));
     }
 
-    /**
+    public function reports()
+    {
+      $Locations = Location::all();
+      return view('learning_environment.reports', compact( 'Locations'));
+    } 
+
+    public function export_learning_environments()
+    {
+        $learning_environments = LearningEnvironment::all();
+        $data = array(
+            'learning_environments' => $learning_environments
+        );
+        $pfp = Pdf::loadView('reports.export_learning_environments', $data)
+                    ->setPaper('letter','portrait');
+        return $pfp->download('lerning_environment.pdf');
+    }   
+
+     /**
      * Show the form for creating a new resource.
      */
     public function create()

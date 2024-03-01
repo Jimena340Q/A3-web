@@ -10,6 +10,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SchedulingEnvironmentController;
 use App\Models\Career;
+use App\Models\LearningEnvironment;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -84,7 +85,11 @@ Route::middleware('auth')->prefix('learning_environment')->group(function(){
     Route::post('/create', [LearningEnvironmentController::class, 'store'])->name('learning_environment.store');
     Route::put('/edit/{id}', [LearningEnvironmentController::class, 'update'])->name('learning_environment.update');
     Route::get('/destroy{id}', [LearningEnvironmentController::class, 'destroy'])->name('learning_environment.destroy');
+    Route::get('/reports',[LearningEnvironmentController::class,'reports'])->name('learning_environment.reports');
+    Route::post('/export_learning_environments', [LearningEnvironmentController::class, 'export_learning_environments'])->name('learning_environments.reports');
+
 }); 
+
 Route::middleware('auth')->prefix('location')->group(function(){
     Route::get('/index', [LocationController::class, 'index'])->name('location.index');
     Route::get('/create', [LocationController::class, 'create'])->name('location.create');
