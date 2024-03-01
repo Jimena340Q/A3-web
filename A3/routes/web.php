@@ -104,6 +104,7 @@ Route::middleware('auth')->prefix('scheduling_environment')->group(function(){
     Route::get('/destroy/{id}', [SchedulingEnvironmentController::class, 'destroy'])->name('scheduling_environment.destroy');
     Route::get('/reports', [SchedulingEnvironmentController::class, 'reports'])->name('scheduling_environment.reports');
     Route::post('/export_scheduling_environments_by_course', [SchedulingEnvironmentController::class, 'export_scheduling_environments_by_course'])->name('scheduling_environment.report_by_course');
+    Route::post('/export_scheduling_environments_by_instructor', [SchedulingEnvironmentController::class, 'export_scheduling_environments_by_instructor'])->name('scheduling_environments.report_by_instructor');
  
 }); 
 

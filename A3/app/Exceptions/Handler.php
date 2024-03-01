@@ -47,10 +47,8 @@ class Handler extends ExceptionHandler
                 return redirect()->route('auth.index');
             }
         }
-        return parent::render($request, $exception);
-
-        if($exception instanceof UnauthorizedHttpException)
         
+        if($exception instanceof UnauthorizedHttpException)        
         {
             if(Auth::check())
             {
@@ -61,11 +59,8 @@ class Handler extends ExceptionHandler
                 return redirect()->route('auth.index');
             }
         }
-           
-          
-
-    
-
+        
+        return parent::render($request, $exception);
     }
 
 }

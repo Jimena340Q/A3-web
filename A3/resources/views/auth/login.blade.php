@@ -22,8 +22,8 @@
                         <div class="card-body p-0">
                             <div class="row">
                                 <div class="col-lg-6 d-none d-lg-block">
-                                    <img src="{{ asset('img/login.webp') }}" alt="login"
-                                    class="img-fluid">
+                                    <img src="{{ asset('img/libros.jpeg') }}" alt="login"
+                                    class="img-fluid" width="600px">
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="p-5">
