@@ -21,9 +21,9 @@ class Course extends Model
     ];
 
     
-    public function careers()
+    public function career()
     {
-        return $this->hasMany(Career::class);
+        return $this->belongsTo(Career::class);
     }
 
     public function scheduling_environments()

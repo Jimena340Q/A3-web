@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Career;
 use App\Models\Course;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -36,6 +37,25 @@ class CourseController extends Controller
         $courses = Course::all();
         return view('course.index', compact('courses'));
     }
+
+    public function reports()
+    {
+      $careers = Career::all();
+      return view('course.index', compact('careers' ));
+    } 
+
+  
+
+    public function export_courses()
+    {
+        $courses = Course::all();
+        $data = array(
+            'courses' => $courses
+        );
+        $pfp = Pdf::loadView('reports.export_courses', $data)
+                    ->setPaper('letter','portrait');
+        return $pfp->download('courses.pdf');
+    }  
 
     /**
      * Show the form for creating a new resource.

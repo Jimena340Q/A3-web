@@ -60,6 +60,7 @@ class LearningEnvironmentController extends Controller
     {
         $learning_environments = LearningEnvironment::all();
         $data = array(
+        
             'learning_environments' => $learning_environments
         );
         $pfp = Pdf::loadView('reports.export_learning_environments', $data)

@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-lg-12 mb-4 d-grip grap-2 d-md-block">
             <a href="{{ route('course.create') }}" class="btn btn-primary">Crear</a>
+            <a href="{{ route('courses.reports') }}" class="btn btn-primary">PDF</a>
         </div>
     </div>
     @include('templates.messages')

@@ -56,6 +56,7 @@ Route::middleware('auth')->prefix('course')->group(function(){
     Route::post('/create', [CourseController::class, 'store'])->name('course.store');
     Route::put('/edit/{id}', [CourseController::class, 'update'])->name('course.update');
     Route::get('/destroy/{id}', [CourseController::class, 'destroy'])->name('course.destroy');
+    Route::get('/export_courses', [CourseController::class, 'export_courses'])->name('courses.reports');
 }); 
 
 Route::middleware('auth')->prefix('environment_type')->group(function(){
