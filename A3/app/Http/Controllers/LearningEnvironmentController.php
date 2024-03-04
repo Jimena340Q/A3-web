@@ -59,20 +59,16 @@ class LearningEnvironmentController extends Controller
 
     public function export_learning_environments(Request $request)
     {
-        $locations = Location::where('id' , '=' , $request['location_id'])->first();
-        $environment_types = EnvironmentType::where('id' , '=' , $request['type_id'])->first();
-        $learning_environments = LearningEnvironment::where('id' , '=' , $request['type_id'])->get();
+        $locations = Location::where('id' , '=' , $request['type_id'])->first();
+        $environment_types = EnvironmentType::where('id' , '=' , $request['type_id'])->get();
+        $learning_environments = LearningEnvironment::where('location_id' , '=' , $request['location_id'])->get();
+
         ;
 
         $data = array(
-<<<<<<< Updated upstream
-        
-            'learning_environments' => $learning_environments
-=======
             'learning_environments' => $learning_environments,
             'locations' => $locations,
             'environment_types' => $environment_types
->>>>>>> Stashed changes
         );
         $pfp = Pdf::loadView('reports.export_learning_environments', $data)
                     ->setPaper('letter','portrait');
