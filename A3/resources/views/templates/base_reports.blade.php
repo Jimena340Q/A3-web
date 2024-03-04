@@ -22,7 +22,7 @@
     <br>
     <section id="infoReport">
         <p style="font-size: 14px;">
-            <strong>Fecha reporte</strong>
+            <strong>Fecha reporte:</strong>
             @php
                 $time = time();
                 echo date("Y-m-d (H:i:s)", $time)

@@ -31,7 +31,7 @@
                             </a>                                               
                             <div class="dropdown-divider"></div>
                             
-                            <a href="#" id="logout" class="dropdown-item" >Cerrar sesión</a>                               
+                            <a href="{{ route('auth.logout')}}" id="logout" class="dropdown-item" >Cerrar sesión</a>                               
                     </div>
                 </li>
 

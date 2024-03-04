@@ -46,18 +46,6 @@ class AuthController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), $this->rules);
-        $validator->setAttributeNames($this->traductionAttributes);
-        if($validator->fails())
-        {
-            $errors = $validator->errors();
-            return redirect()->route('auth.register')->withInput()->withErrors($errors);
-        }
-
-        $request['password'] = bcrypt($request['password']);
-        $user = User::create($request->all());
-        session()->flash('message', 'Usuario registrado exitosamente');
-        return redirect()->route('auth.index');
     }
 
     public function login(Request $request)
@@ -82,7 +70,7 @@ class AuthController extends Controller
     {
         Auth::logout();
         $request->session()->invalidate();
-        return redirect()->route('auth.login');
+        return redirect()->route('auth.index');
     }
 
 

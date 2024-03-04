@@ -64,7 +64,6 @@ class SchedulingEnvironmentController extends Controller
             'courses' => $courses,
             'learning_environments' => $learning_environments,
             'scheduling_environments' => $scheduling_environments
-            
         );
 
         $pdf = Pdf::loadView('reports.export_scheduling_environments_by_course', $data)

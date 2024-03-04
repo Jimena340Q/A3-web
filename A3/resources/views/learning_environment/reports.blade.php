@@ -30,7 +30,7 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-5">
-                                    <button type="submit" class="btn btn-secondary btn-block col-lg-3 mb-4">Generar Reporte
+                                    <button type="submit" class="btn btn-secondary btn-block col-lg-3 mb-4">
                                         <i class="fa-solid fa-file-pdf"></i>
                                     </button>
                                 </div>
